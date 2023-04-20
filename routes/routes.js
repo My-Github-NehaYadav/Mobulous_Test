@@ -3,14 +3,23 @@ const app = express();
 
 const Signup = require("../controllers/signup.user");
 const Login = require("../controllers/login.user");
-// const GetUsers = require("../controllers/get.users");
+const AddProduct = require("../controllers/add.product");
+const GetDetail = require("../controllers/get.products");
+const SendNotification = require("../controllers/sendNotification")
 
-// Signup a new user
+// *******************Signup a new user **************
 app.post("/signup/user", Signup.signupUser);
 
-// Login User
+// *******************Login User**********************
 app.post("/login/user", Login.loginUser);
 
-// app.get("/getusers", GetUsers.getUsers);
+//******************Add product*********************** 
+app.post("/product", AddProduct.addProduct);
+
+// ******************Get Deatils***********************
+app.get("/getproducts", GetDetail.getProducts);
+
+//*******************Send Notification*****************
+app.post("/fcm", SendNotification.fcm);
 
 module.exports = app;

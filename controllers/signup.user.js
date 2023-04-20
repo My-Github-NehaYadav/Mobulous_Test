@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken');
 
 const signupUser = async function (req, res, next) {
     let isValid = UserSchema.validate(req.body);
-    console.log(req.body)
 
     if (isValid.error) {
         return next(ApiError.validationError("ValidationError...!"));
@@ -25,7 +24,6 @@ const signupUser = async function (req, res, next) {
         });
     }
     catch (err) {
-        console.log(err)
         return next(ApiError.badRequest("BadRequest....!"));
     };
 };
